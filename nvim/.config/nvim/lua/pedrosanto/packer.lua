@@ -15,18 +15,13 @@ return require('packer').startup(function(use)
   requires = { {'nvim-lua/plenary.nvim'} }
 }
 -- Tokyo Night
-use ({
+ use ({
 	'folke/tokyonight.nvim',
 	as = 'tokyonight',
 	config = function()
             vim.cmd('colorscheme tokyonight')
 
 	end
-})
--- Nord Theme
-use ({
-    'AlexvZyl/nordic.nvim',
-    as = 'nordic'
 })
 
     use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
