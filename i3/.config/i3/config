@@ -205,9 +205,10 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i4status
 # finds out, if available)
 bar {
-    status_command ~/.local/bin/bumblebee-status -m memory battery time \
-		pasink pasource caffeine -p time.format="%H:%M" -t onedark-powerline
+    status_command ~/.local/bin/bumblebee-status -m memory battery time  \
+		-p time.format="%H:%M" -t onedark-powerline
 }
+#  pasource pasink 
 
 # ------------------------------------------
 # CUSTOM KEYS START
