@@ -21,7 +21,7 @@ font pango:Hack 15px
 # Thanks Childz
 for_window [class="^.*"] border pixel 2
                           # class                 border  backgr. text    indicator child_border
-for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
+for_window [class="^.*"] client.focused          #689d6a #285577 #ffffff #2e9ef4   #689d6a
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -205,7 +205,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i4status
 # finds out, if available)
 bar {
-    status_command ~/.local/bin/bumblebee-status -m memory battery time    \
+    status_command ~/.local/bin/bumblebee-status -m memory battery time pasource pasink    \
 		-p time.format="%H:%M" -t gruvbox
 }
 #  pasource pasink 
