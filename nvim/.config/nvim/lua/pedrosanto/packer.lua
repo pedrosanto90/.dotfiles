@@ -16,10 +16,10 @@ return require('packer').startup(function(use)
 }
 -- Tokyo Night
  use ({
-	'folke/tokyonight.nvim',
+	'gruvbox-community/gruvbox',
 	as = 'tokyonight',
 	config = function()
-            vim.cmd('colorscheme tokyonight')
+            vim.cmd('colorscheme gruvbox')
 
 	end
 })
