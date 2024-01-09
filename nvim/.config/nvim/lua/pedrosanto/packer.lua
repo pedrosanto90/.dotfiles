@@ -20,9 +20,7 @@ return require('packer').startup(function(use)
 	as = 'tokyonight',
 	config = function()
             vim.cmd('colorscheme gruvbox')
-
-	end
-})
+}
 
     use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use ('ThePrimeagen/harpoon')
