@@ -14,15 +14,15 @@ return require('packer').startup(function(use)
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
-    -- Tokyo Night
-    use ({
-        'gruvbox-community/gruvbox',
-        as = 'tokyonight',
+    -- colorscheme
+    use {
+        'catppuccin/nvim',
+        as = 'catppuccin',
         config = function()
-            vim.cmd('colorscheme gruvbox')
+            vim.cmd('colorscheme catppuccin')
 
         end
-    })
+    }
 
     use ('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use ('ThePrimeagen/harpoon')
