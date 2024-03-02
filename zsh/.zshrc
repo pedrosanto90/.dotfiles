@@ -106,3 +106,4 @@ alias c="clear"
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 . "$HOME/.asdf/asdf.sh"
 export PATH=/home/pedro/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
