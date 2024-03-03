@@ -18,10 +18,19 @@ general {
         interval = 5
 }
 
+order += "volume master"
 order += "disk /"
 order += "battery all"
 order += "load"
 order += "tztime local"
+
+volume master {
+        format = "♪: %volume"
+        format_muted = "♪: muted (%volume)"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
 
 battery all {
         format = "%status %percentage %remaining"
@@ -32,6 +41,8 @@ battery all {
         status_full = "☻ FULL"
         path = "/sys/class/power_supply/BAT%d/uevent"
         low_threshold = 10
+        last_full_capacity = true
+        integer_battery_capacity = true
 }
 
 tztime local {
