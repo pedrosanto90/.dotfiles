@@ -3,7 +3,6 @@ set-option -g default-terminal "screen-256color"
 set -s escape-time 0
 set -g mouse 
 
-set -g @plugin 'tmux-plugins/tmux-resurrect'
 
 unbind C-b
 set-option -g prefix C-a
@@ -21,6 +20,7 @@ bind -r j select-pane -D
 bind -r h select-pane -L
 bind -r l select-pane -R
 
-bind-key -r f run-shell "tmux neww ~/scripts/tmux-sessionizer"
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @resurrect-dir '/home/pedro/.tmux-sessions
 
-set -g @plugin 'tmux-plugins/tpm'
+bind-key -r f run-shell "tmux neww ~/scripts/tmux-sessionizer"
