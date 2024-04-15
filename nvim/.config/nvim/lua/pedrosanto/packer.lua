@@ -1,9 +1,8 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- )This )file can be loaded by calling `lua require('plugins')` from your init.vim
 --
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
-
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
@@ -44,6 +43,8 @@ return require('packer').startup(function(use)
             {'hrsh7th/nvim-cmp'},
             {'hrsh7th/cmp-nvim-lsp'},
             {'L3MON4D3/LuaSnip'},
+            -- autoinstaller
+            {'WhoIsSethDaniel/mason-tool-installer.nvim'},
         }
     }
     -- autopairs
@@ -70,8 +71,11 @@ return require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
-    -- emmet
-    use 'mattn/emmet-vim'
 
+    -- codium AI
+    -- Remove the `use` here if you're using folke/lazy.nvim.
+    use {
+      'Exafunction/codeium.vim'
+    }
 
 end)

@@ -30,3 +30,28 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 vim.opt.encoding = 'UTF-8'
+
+-- Sync clipboard between OS and Neovim.
+vim.opt.clipboard = 'unnamedplus'
+
+-- Sets how neovim will display certain whitespace characters in the editor.
+--  See `:help 'list'`
+--  and `:help 'listchars'`
+vim.opt.list = true
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+
+-- Disable arrow keys in normal mode
+vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+
+-- Disable arrow keys in insert mode
+vim.keymap.set('i', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+vim.keymap.set('i', '<right>', '<cmd>echo "Use l to move!!"<CR>')
+vim.keymap.set('i', '<up>', '<cmd>echo "Use k to move!!"<CR>')
+vim.keymap.set('i', '<down>', '<cmd>echo "Use j to move!!"<CR>')
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25
