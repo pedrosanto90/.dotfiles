@@ -8,6 +8,7 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
   vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
   vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end, opts)
+end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({

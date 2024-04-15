@@ -52,6 +52,3 @@ vim.keymap.set('i', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 vim.keymap.set('i', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 vim.keymap.set('i', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
-vim.g.netrw_browse_split = 0
-vim.g.netrw_banner = 0
-vim.g.netrw_winsize = 25
