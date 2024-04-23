@@ -18,7 +18,7 @@ return require('packer').startup(function(use)
         'catppuccin/nvim',
         as = 'catppuccin',
         config = function()
-            vim.cmd('colorscheme catppuccin')
+            vim.cmd('colorscheme catppuccin-mocha')
 
         end
     }
@@ -77,5 +77,13 @@ return require('packer').startup(function(use)
     use {
       'Exafunction/codeium.vim'
     }
+
+    -- DAP
+    use 'mfussenegger/nvim-dap'
+    use 'rcarriga/nvim-dap-ui'
+    use 'nvim-telescope/telescope-dap.nvim'
+    use 'mfussenegger/nvim-dap-python'
+    use 'nvim-neotest/nvim-nio'
+
 
 end)
