@@ -1,6 +1,6 @@
 -- Catppuccin Theme
 return {
-    -- https://github.com/catppuccin/nvim
+  -- https://github.com/catppuccin/nvim
     'catppuccin/nvim',
     name = "catppuccin", -- name is needed otherwise plugin shows up as "nvim" due to github URI
     lazy = false, -- We want the colorscheme to load immediately when starting Neovim
@@ -15,7 +15,7 @@ return {
                 crust = "#141414",
             },
         },
-        --   -- Replace this with your scheme-specific settings or remove to use the defaults
+      --   -- Replace this with your scheme-specific settings or remove to use the defaults
         flavour = "mocha", -- "latte, frappe, macchiato, mocha"
     },
     config = function(_, opts)
@@ -23,6 +23,18 @@ return {
         vim.cmd("colorscheme catppuccin") -- Replace this with your favorite colorscheme
     end
 }
+
+-- ColorScheme Gruvbox
+-- return {
+  -- https://github.com/morhetz/gruvbox
+--   'morhetz/gruvbox',
+--   lazy = false, -- We want the colorscheme to load immediately when starting Neovim
+--   priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
+--   config = function(_, opts)
+--     vim.cmd("colorscheme gruvbox") -- Replace this with your favorite colorscheme
+--   end
+-- }
+
 -- Theme/Colorscheme (uncomment section for whichever theme you prefer or use your own)
 -- Kanagawa Theme (Custom Palette)
 -- return {
@@ -47,11 +59,11 @@ return {
 --         sumiInk4 = "#2A2A2A", -- modified
 --         sumiInk5 = "#363636", -- modified
 --         sumiInk6 = "#545454", -- modified
-
+--
 --         -- Popup and Floats
 --         waveBlue1 = "#322C47", -- modified
 --         waveBlue2 = "#4c4464", -- modified
-
+--
 --         -- Diff and Git
 --         winterGreen = "#2B3328",
 --         winterYellow = "#49443C",
@@ -60,13 +72,13 @@ return {
 --         autumnGreen = "#76A56A", -- modified
 --         autumnRed = "#C34043",
 --         autumnYellow = "#DCA561",
-
+--
 --         -- Diag
 --         samuraiRed = "#E82424",
 --         roninYellow = "#FF9E3B",
 --         waveAqua1 = "#7E9CD8", -- modified
 --         dragonBlue = "#7FB4CA", -- modified
-
+--
 --         -- Foreground and Comments
 --         oldWhite = "#C8C093",
 --         fujiWhite = "#F9E7C0", -- modified
@@ -78,12 +90,12 @@ return {
 --         springViolet2 = "#9CABCA",
 --         springBlue = "#7FC4EF", -- modified
 --         waveAqua2 = "#77BBDD", -- modified
-
+--
 --         springGreen = "#98BB6C",
 --         boatYellow1 = "#938056",
 --         boatYellow2 = "#C0A36E",
 --         carpYellow = "#FFEE99", -- modified
-
+--
 --         sakuraPink = "#D27E99",
 --         waveRed = "#E46876",
 --         peachRed = "#FF5D62",
@@ -95,7 +107,7 @@ return {
 --   config = function(_, opts)
 --     require('kanagawa').setup(opts) -- Replace this with your favorite colorscheme
 --     vim.cmd("colorscheme kanagawa") -- Replace this with your favorite colorscheme
-
+--
 --     -- Custom diff colors
 --     vim.cmd([[
 --       autocmd VimEnter * hi DiffAdd guifg=#00FF00 guibg=#005500
@@ -103,7 +115,7 @@ return {
 --       autocmd VimEnter * hi DiffChange guifg=#CCCCCC guibg=#555555
 --       autocmd VimEnter * hi DiffText guifg=#00FF00 guibg=#005500
 --     ]])
-
+--
 --     -- Custom border colors
 --     vim.cmd([[
 --       autocmd ColorScheme * hi NormalFloat guifg=#F9E7C0 guibg=#1F1F1F
@@ -141,7 +153,7 @@ return {
 --   opts = {
 --     -- Replace this with your scheme-specific settings or remove to use the defaults
 --     -- transparent = true,
---     style = "night", -- other variations "storm, night, moon, day"
+--     style = "storm", -- other variations "storm, night, moon, day"
 --   },
 --   config = function(_, opts)
 --     require('tokyonight').setup(opts) -- Replace this with your favorite colorscheme
@@ -157,7 +169,7 @@ return {
 --   lazy = false, -- We want the colorscheme to load immediately when starting Neovim
 --   priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
 --   config = function(_, opts)
---     vim.g.sonokai_style = "default" -- "default, atlantis, andromeda, shusia, maia, espresso"
+--     vim.g.sonokai_style = "espresso" -- "default, atlantis, andromeda, shusia, maia, espresso"
 --     vim.cmd("colorscheme sonokai") -- Replace this with your favorite colorscheme
 --   end
 -- }
@@ -173,4 +185,38 @@ return {
 --   end
 -- }
 
-
+-- Cyberdream Theme
+-- return {
+--     "scottmckendry/cyberdream.nvim",
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         require("cyberdream").setup({
+--             -- Recommended - see "Configuring" below for more config options
+--             transparent = true,
+--             italic_comments = false,
+--             hide_fillchars = true,
+--             borderless_telescope = true,
+--             terminal_colors = true,
+--         })
+--         vim.cmd("colorscheme cyberdream") -- set the colorscheme
+--     end,
+-- }
+--
+-- Everforest Theme
+-- return {
+--     "neanias/everforest-nvim",
+--     version = false,
+--     lazy = false,
+--     priority = 1000, -- make sure to load this before all the other start plugins
+--     -- Optional; default configuration will be used if setup isn't called.
+--     config = function()
+--         require("everforest").setup({
+--             vim.cmd("colorscheme everforest"),
+--             background = "hard",
+--             italics = true,
+--             ui_contrast = "high",
+--             disable_italic_comments = false,
+--         })
+--     end,
+-- }

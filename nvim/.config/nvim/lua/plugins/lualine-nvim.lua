@@ -12,7 +12,7 @@ return {
   opts = {
     options = {
       -- For more themes, see https://github.com/nvim-lualine/lualine.nvim/blob/master/THEMES.md
-      theme = "tokyonight", -- "auto, tokyonight, catppuccin, codedark, nord" 
+      theme = "auto", -- "auto, tokyonight, catppuccin, codedark, nord" 
     },
     sections = {
       lualine_c = {
