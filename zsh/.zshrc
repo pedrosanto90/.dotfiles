@@ -22,6 +22,9 @@ alias tmx='tmux new -s $(basename $PWD)'
 # alias files='fzf --preview "bat --style=numbers --color=always {} | head -500"'
 alias combine='~/scripts/combine'
 alias dnotes='~/DeepNotes-1.0.24.AppImage'
+alias ls='exa --icons'
+alias cat='batcat'
+
 
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
