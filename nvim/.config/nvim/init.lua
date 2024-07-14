@@ -1,3 +1,6 @@
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
 -- Bootstrap lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
