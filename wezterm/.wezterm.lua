@@ -19,4 +19,5 @@ config.colors = {
 config.default_cursor_style = 'BlinkingBlock'
 config.cursor_blink_rate = 700
 -- and finally, return the configuration to wezterm
+config.hide_mouse_cursor_when_typing = false
 return config

@@ -28,10 +28,11 @@ return {
         'lemminx',
         'marksman',
         'quick_lint_js',
-        'tsserver', -- requires npm to be installed
+        'ts_ls', -- requires npm to be installed
         'gopls',
         'pyright',
         'clangd',
+        'emmet_language_server',
       }
     })
 

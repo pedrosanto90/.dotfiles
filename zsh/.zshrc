@@ -33,7 +33,7 @@ export PATH=/home/pedro/.local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
 
-# . "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/asdf.sh"
 # append completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
