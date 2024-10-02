@@ -239,8 +239,7 @@ bindsym $mod+shift+b exec firefox-esr
 bindsym ctrl+$mod+f exec pcmanfm
 
 # Open a terminal emulator:
-set $term /usr/bin/wezterm
-bindsym $mod+t exec wezterm
+bindsym $mod+t exec flatpak run org.wezfurlong.wezterm
 
 # Kill focused window:
 bindsym $mod+Shift+q kill
