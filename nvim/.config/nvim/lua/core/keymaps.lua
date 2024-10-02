@@ -26,9 +26,9 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 
 -- Split window management
-keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s") -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>=") -- make split windows equal width
+keymap.set("n", "<leader>sv", "<C-w>v", { desc = '[S]plit window [V]ertically' }) -- split window vertically
+keymap.set("n", "<leader>sh", "<C-w>s", { desc = '[S]plit window [H]orizontally'}) -- split window horizontally
+keymap.set("n", "<leader>se", "<C-w>=", { desc = '[S]plit windows [E]qual with'}) -- make split windows equal width
 keymap.set("n", "<leader>sx", ":close<CR>") -- close split window
 keymap.set("n", "<leader>sj", "<C-w>-") -- make split window height shorter
 keymap.set("n", "<leader>sk", "<C-w>+") -- make split windows height taller
@@ -37,8 +37,8 @@ keymap.set("n", "<leader>sh", "<C-w><5") -- make split windows width smaller
 
 
 -- Telescope
-keymap.set('n', '<leader>pf', require('telescope.builtin').find_files, {})
-keymap.set('n', '<leader>ps', require('telescope.builtin').live_grep, {})
+keymap.set('n', '<leader>pf', require('telescope.builtin').find_files, { desc = '[P]roject [F]ind'})
+keymap.set('n', '<leader>ps', require('telescope.builtin').live_grep, {}, { desc = '[P]roject [S]earch'})
 keymap.set('n', '<leader><leader>', require('telescope.builtin').buffers, {})
 keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, {})
 keymap.set('n', '<leader>fs', require('telescope.builtin').current_buffer_fuzzy_find, {})
@@ -116,3 +116,8 @@ keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr
 
 -- nvim-emmet
 vim.keymap.set({ "n", "v" }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
+
+-- live-server.nvim
+vim.keymap.set("n", "<F1>", vim.cmd.LiveServerStart)
+vim.keymap.set("n", "<F2>", vim.cmd.LiveServerStop)
+vim.keymap.set("n", "<F3>", vim.cmd.LiveServerToggle)

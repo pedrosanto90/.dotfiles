@@ -7,7 +7,7 @@ return {
     priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
     opts = {
         term_colors = true,
-        transparent_background = false,
+        transparent_background = true,
         color_overrides = {
             mocha = {
                 base = "#141414",
