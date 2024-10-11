@@ -9,13 +9,18 @@ local config = wezterm.config_builder()
 -- For example, changing the color scheme:
 -- config.color_scheme = 'AdventureTime'
 config.automatically_reload_config = true
+config.font = wezterm.font 'HackNerdFont'
 config.font_size = 20.0
+-- You can specify some parameters to influence the font selection;
+-- for example, this selects a Bold, Italic font variant.
+-- config.font = wezterm.font 'Fira Code'
 config.colors = {
     background = '#141414',
     cursor_bg = '#ffffff',
     cursor_border = '#ffffff',
 
 }
+config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.window_background_opacity = 0.90
 config.default_cursor_style = 'BlinkingBlock'
 config.cursor_blink_rate = 700

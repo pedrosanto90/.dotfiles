@@ -2,6 +2,13 @@
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
+if [ "$XDG_SESSION_DESKTOP" = "wayland" ] ; then
+    # https://github.com/swaywm/sway/issues/595
+    export _JAVA_AWT_WM_NONREPARENTING=1
+fi
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
@@ -41,3 +48,5 @@ autoload -Uz compinit && compinit
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+ export _JAVA_AWT_WM_NONREPARENTING=1

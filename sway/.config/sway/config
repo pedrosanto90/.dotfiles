@@ -80,6 +80,15 @@ exec swayidle -w \
 set $lock_screen exec bash ~/.config/sway/lock_screen.sh
 bindsym $mod+Escape exec $lock_screen
 
+# Suspend and Lock System
+set $suspend exec bash ~/.config/sway/suspend.sh
+bindsym $mod+Shift+s exec $suspend
+
+# Taking screen shots
+# Screenshot a region
+# bindsym --to-code $mod+p exec 'grim -g "$(slurp)" ~/Screenshots/$(date +%Hh_%Mm_%Ss_%d_%B_%Y).png'
+
+bindsym --to-code $mod+p exec 'grim -g "$(slurp)" - | wl-copy'
 
 #========================================#
 # Keyboard Shortcuts (Window Management) #
@@ -236,7 +245,8 @@ bindsym $mod+shift+b exec firefox-esr
 # bindsym $mod+shift+b exec brave-browser
 
 # Open a file manager:
-bindsym ctrl+$mod+f exec pcmanfm
+# bindsym ctrl+$mod+f exec pcmanfm
+bindsym ctrl+$mod+f exec nautilus
 
 # Open a terminal emulator:
 bindsym $mod+t exec flatpak run org.wezfurlong.wezterm

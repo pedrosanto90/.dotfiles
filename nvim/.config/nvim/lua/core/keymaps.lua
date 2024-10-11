@@ -108,16 +108,15 @@ keymap.set("n", '<leader>de', function() require('telescope.builtin').diagnostic
 -- Undotree
 keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
--- Codeium
-keymap.set('i', '<C-g>', function () return vim.fn['codeium#Accept']() end, { expr = true, silent = true })
-keymap.set('i', '<c-;>', function() return vim.fn['codeium#CycleCompletions'](1) end, { expr = true, silent = true })
-keymap.set('i', '<c-,>', function() return vim.fn['codeium#CycleCompletions'](-1) end, { expr = true, silent = true })
-keymap.set('i', '<c-x>', function() return vim.fn['codeium#Clear']() end, { expr = true, silent = true })
+-- Cody
+keymap.set("n", "<leader>cc", vim.cmd.CodyChat)
+keymap.set("n", "<leader>sg", vim.cmd.CodyToggle)
 
 -- nvim-emmet
 vim.keymap.set({ "n", "v" }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
 
 -- live-server.nvim
-vim.keymap.set("n", "<F1>", vim.cmd.LiveServerStart)
-vim.keymap.set("n", "<F2>", vim.cmd.LiveServerStop)
-vim.keymap.set("n", "<F3>", vim.cmd.LiveServerToggle)
+keymap.set("n", "<F1>", vim.cmd.LiveServerStart)
+keymap.set("n", "<F2>", vim.cmd.LiveServerStop)
+keymap.set("n", "<F3>", vim.cmd.LiveServerToggle)
+
