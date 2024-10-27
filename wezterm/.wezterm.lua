@@ -21,7 +21,7 @@ config.colors = {
 
 }
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
-config.window_background_opacity = 0.90
+config.window_background_opacity = 0.95
 config.default_cursor_style = 'BlinkingBlock'
 config.cursor_blink_rate = 700
 config.hide_tab_bar_if_only_one_tab = true
