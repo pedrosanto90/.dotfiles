@@ -1,32 +1,32 @@
 -- Catppuccin Theme
-return {
-  -- https://github.com/catppuccin/nvim
-    'catppuccin/nvim',
-    name = "catppuccin", -- name is needed otherwise plugin shows up as "nvim" due to github URI
-    lazy = false, -- We want the colorscheme to load immediately when starting Neovim
-    priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
-    opts = {
-        term_colors = true,
-        transparent_background = true,
-        color_overrides = {
-            mocha = {
-                base = "#141414",
-                mantle = "#141414",
-                crust = "#141414",
-            },
-        },
-      --   -- Replace this with your scheme-specific settings or remove to use the defaults
-        flavour = "mocha", -- "latte, frappe, macchiato, mocha"
-    },
-    config = function(_, opts)
-        require('catppuccin').setup(opts) -- Replace this with your favorite colorscheme
-        vim.cmd("colorscheme catppuccin") -- Replace this with your favorite colorscheme
-    end
-}
+-- return {
+--   -- https://github.com/catppuccin/nvim
+--     'catppuccin/nvim',
+--     name = "catppuccin", -- name is needed otherwise plugin shows up as "nvim" due to github URI
+--     lazy = false, -- We want the colorscheme to load immediately when starting Neovim
+--     priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
+--     opts = {
+--         term_colors = true,
+--         transparent_background = true,
+--         color_overrides = {
+--             mocha = {
+--                 base = "#141414",
+--                 mantle = "#141414",
+--                 crust = "#141414",
+--             },
+--         },
+--       --   -- Replace this with your scheme-specific settings or remove to use the defaults
+--         flavour = "mocha", -- "latte, frappe, macchiato, mocha"
+--     },
+--     config = function(_, opts)
+--         require('catppuccin').setup(opts) -- Replace this with your favorite colorscheme
+--         vim.cmd("colorscheme catppuccin") -- Replace this with your favorite colorscheme
+--     end
+-- }
 
 -- ColorScheme Gruvbox
 -- return {
-  -- https://github.com/morhetz/gruvbox
+-- https://github.com/morhetz/gruvbox
 --   'morhetz/gruvbox',
 --   lazy = false, -- We want the colorscheme to load immediately when starting Neovim
 --   priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
@@ -34,6 +34,75 @@ return {
 --     vim.cmd("colorscheme gruvbox") -- Replace this with your favorite colorscheme
 --   end
 -- }
+-- ColorScheme RosePine
+return {
+    {
+    "rose-pine/neovim",
+    priority = 1000,
+    config = function()
+      require("rose-pine").setup({
+        variant = "moon", -- auto, main, moon, or dawn
+        dark_variant = "moon", -- main, moon, or dawn
+        dim_inactive_windows = false,
+        extend_background_behind_borders = true,
+
+        enable = {
+          terminal = true,
+          legacy_highlights = true, -- Improve compatibility for previous versions of Neovim
+          migrations = true, -- Handle deprecated options automatically
+        },
+
+        styles = {
+          bold = true,
+          italic = true,
+          transparency = true,
+        },
+
+        groups = {
+          border = "muted",
+          link = "iris",
+          panel = "surface",
+
+          error = "love",
+          hint = "iris",
+          info = "foam",
+          note = "pine",
+          todo = "rose",
+          warn = "gold",
+
+          git_add = "foam",
+          git_change = "rose",
+          git_delete = "love",
+          git_dirty = "rose",
+          git_ignore = "muted",
+          git_merge = "iris",
+          git_rename = "pine",
+          git_stage = "iris",
+          git_text = "rose",
+          git_untracked = "subtle",
+
+          h1 = "iris",
+          h2 = "foam",
+          h3 = "rose",
+          h4 = "gold",
+          h5 = "pine",
+          h6 = "foam",
+        },
+
+        highlight_groups = {
+          -- Comment = { fg = "foam" },
+          -- VertSplit = { fg = "muted", bg = "muted" },
+          NormalFloat = { bg = "none" },
+        },
+      })
+
+      -- vim.cmd("colorscheme rose-pine")
+      vim.cmd("colorscheme rose-pine-main")
+      -- vim.cmd("colorscheme rose-pine-moon")
+      -- vim.cmd("colorscheme rose-pine-dawn")
+    end,
+  },
+    }
 
 -- Theme/Colorscheme (uncomment section for whichever theme you prefer or use your own)
 -- Kanagawa Theme (Custom Palette)
@@ -44,7 +113,7 @@ return {
 --   priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
 --   opts = {
 --     -- Replace this with your scheme-specific settings or remove to use the defaults
---     -- transparent = true,
+--     transparent = true,
 --     background = {
 --       -- light = "lotus",
 --       dark = "wave", -- "wave, dragon"
@@ -132,7 +201,7 @@ return {
 --   priority = 1000, -- Load the colorscheme before other non-lazy-loaded plugins
 --   opts = {
 --     -- Replace this with your scheme-specific settings or remove to use the defaults
---     -- transparent = true,
+--     transparent = true,
 --     background = {
 --       -- light = "lotus",
 --       dark = "wave", -- "wave, dragon"
