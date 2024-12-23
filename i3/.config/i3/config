@@ -49,6 +49,7 @@ floating_modifier $mod
 bindsym $mod+Return exec wezterm
 
 bindsym $mod+t exec firefox-esr
+bindsym $mod+b exec brave-browser
 
 #crop-area screenshot by pressing Mod + printscreen
 bindsym $mod+p exec maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
