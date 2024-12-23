@@ -1,44 +1,55 @@
--- optionally enable 24-bit colour
+require("config.lazy")
+
+-- General keymaps
+vim.keymap.set("n", "<space><space>x", "<cmd>source %<CR>")
+vim.keymap.set("n", "<space>x", ":.lua<CR>")
+vim.keymap.set("v", "<space>x", ":lua<CR>")
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+-- Options
+vim.opt.guicursor = ""
+
+vim.opt.nu = true
+vim.opt.relativenumber = true
+
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
+vim.opt.smartindent = true
+
+vim.opt.wrap = false
+
+vim.opt.swapfile = false
+vim.opt.backup = false
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undofile = true
+
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+
 vim.opt.termguicolors = true
 
--- Bootstrap lazy
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+vim.opt.scrolloff = 16
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
 
--- This has to be set before initializing lazy
-vim.g.mapleader = " "
+vim.opt.updatetime = 50
 
--- Initialize lazy with dynamic loading of anything in the plugins directory
-require("lazy").setup("plugins", {
-   change_detection = {
-    enabled = true, -- automatically check for config file changes and reload the ui
-    notify = false, -- turn off notifications whenever plugin changes are made
-  },
-})
+vim.opt.colorcolumn = "80"
+vim.opt.encoding = 'UTF-8'
 
--- These modules are not loaded by lazy
-require("core.options")
-require("core.keymaps")
+-- Sync clipboard between OS and Neovim.
+vim.opt.clipboard = 'unnamedplus'
 
-local autocmd = vim.api.nvim_create_autocmd
-
--- highlight on yank
-autocmd('TextYankPost', {
-  desc = 'Highlight when yanking (copying) text',
-  group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
+-- Highlight when yanking (copying) text
+--  Try it with `yap` in normal mode
+--  See `:help vim.highlight.on_yank()`
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
 })
-
-
