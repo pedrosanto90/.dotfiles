@@ -25,6 +25,7 @@ gaps inner 10px
 # GET DEM BORDERS OUT OF HEREc:w
 #
 # Thanks Childz
+
 for_window [class="^.*"] border pixel 2
                           # class                 border  backgr. text    indicator child_border
 for_window [class="^.*"] client.focused          #77dd77 #285577 #ffffff #2e9ef4   #285577
@@ -54,11 +55,15 @@ bindsym $mod+b exec brave-browser
 #crop-area screenshot by pressing Mod + printscreen
 bindsym $mod+p exec maim -s --format=png /dev/stdout | xclip -selection clipboard -t image/png -i
 
+exec xset s off
+exec xset -dpms
+exec xset s noblank
+
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 exec --no-startup-id compton
-exec --no-startup-id nitrogen --set-auto /home/pedro/Pictures/wallpaper.png --head=0 && nitrogen --set-auto /home/pedro/Pictures/wallpaper.png --head=1
+exec --no-startup-id nitrogen --set-auto /home/pedro/Pictures/wallpaper.jpg --head=0 && nitrogen --set-auto /home/pedro/Pictures/wallpaper.jpg --head=1
 # output * bg $background fill
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms

@@ -8,17 +8,17 @@ return {
     },
     config = function()
       require('telescope').setup {
-        pickers = {
-          find_files = {
-            theme = "ivy"
-          },
-          buffers = {
-            theme = "ivy"
-          },
-          live_grep = {
-            theme = "ivy"
-          }
-        },
+        -- pickers = {
+        --   find_files = {
+        --     theme = "ivy"
+        --   },
+        --   buffers = {
+        --     theme = "ivy"
+        --   },
+        --   live_grep = {
+        --     theme = "ivy"
+        --   }
+        -- },
         extensions = {
           fzf = {}
         }
@@ -26,7 +26,7 @@ return {
 
       require('telescope').load_extension('fzf')
 
-      vim.keymap.set("n", "<space><space>", require('telescope.builtin').buffers, { desc = 'Buffers' })
+      vim.keymap.set("n", "<space>b", require('telescope.builtin').buffers, { desc = 'Buffers' })
       vim.keymap.set("n", "<space>pf", require('telescope.builtin').find_files, { desc = '[P]roject [F]iles' })
       vim.keymap.set("n", "<space>ps", require('telescope.builtin').live_grep, { desc = '[P]roject [S]tring' })
       vim.keymap.set("n", "<space>pr", function()

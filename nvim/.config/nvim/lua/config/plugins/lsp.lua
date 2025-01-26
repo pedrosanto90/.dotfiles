@@ -1,25 +1,21 @@
 -- LSP Support
 return {
-  -- LSP Configuration
-  -- https://github.com/neovim/nvim-lspconfig
   'neovim/nvim-lspconfig',
   event = 'VeryLazy',
   dependencies = {
-    -- LSP Management
-    -- https://github.com/williamboman/mason.nvim
     { 'williamboman/mason.nvim' },
-    -- https://github.com/williamboman/mason-lspconfig.nvim
     { 'williamboman/mason-lspconfig.nvim' },
-
-    -- Useful status updates for LSP
-    -- https://github.com/j-hui/fidget.nvim
     { 'j-hui/fidget.nvim',                opts = {} },
-
-    -- Additional lua configuration, makes nvim stuff amazing!
-    -- https://github.com/folke/neodev.nvim
     { 'folke/neodev.nvim' },
+    { 'saghen/blink.cmp' },
   },
+
   config = function()
+    local blink_cmp = require('blink.cmp')
+
+    -- Get the capabilities from blink.cmp
+    local capabilities = blink_cmp.get_lsp_capabilities()
+
     require('mason').setup()
     require('mason-lspconfig').setup({
       -- Install these LSPs automatically
@@ -63,13 +59,14 @@ return {
       function(server_name)
         lspconfig[server_name].setup({
           on_attach = lsp_attach,
-          -- capabilities = lsp_capabilities,
+          capabilities = capabilities,
         })
       end
     })
 
     -- Lua LSP settings
     lspconfig.lua_ls.setup {
+      capabilities = capabilities,
       settings = {
         Lua = {
           diagnostics = {

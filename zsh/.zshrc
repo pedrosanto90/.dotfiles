@@ -9,6 +9,8 @@ fi
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+export GOBIN="$HOME/.asdf/shims"
+
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
@@ -31,14 +33,14 @@ alias combine='~/scripts/combine'
 alias dnotes='~/DeepNotes-1.0.24.AppImage'
 alias ls='exa --icons'
 alias cat='batcat'
-
+alias sd='sudo shutdown now'
 
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 #[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=/home/pedro/.local/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
-
+export PATH=$HOME/.local:$PATH
 
 . "$HOME/.asdf/asdf.sh"
 # append completions to fpath

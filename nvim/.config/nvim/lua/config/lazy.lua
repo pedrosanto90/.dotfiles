@@ -26,7 +26,16 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    { "rose-pine/neovim",       config = function() vim.cmd.colorscheme "rose-pine" end },
+    {
+      "catppuccin/nvim",
+      -- "folke/tokyonight.nvim",
+      config = function()
+        vim.cmd.colorscheme "catppuccin"
+        vim.api.nvim_set_hl(0, "Normal", { bg = none })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = none })
+        vim.cmd("highlight SignColumn guibg=none") -- set signcolor black
+      end
+    },
     { import = "config.plugins" }
   },
   change_detection = {
