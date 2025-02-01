@@ -6,7 +6,6 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 
--- For example, changing the color scheme:
 -- config.color_scheme = 'Catppuccin Macchiato' -- or Mocha, Frappe, Latte
 config.automatically_reload_config = true
 config.font = wezterm.font 'HackNerdFont'
@@ -14,13 +13,20 @@ config.font_size = 18.0
 -- You can specify some parameters to influence the font selection;
 -- for example, this selects a Bold, Italic font variant.
 -- config.font = wezterm.font 'Fira Code'
-config.colors = {
-  -- background = '#242933',
-  background = '#000000',
-  cursor_bg = '#c0c8d8',
-  cursor_border = '#c0c8d8',
 
+-- Make Catppuccin background black
+local bg_cat = function()
+  local custom = wezterm.color.get_builtin_schemes()["Catppuccin Mocha"]
+  custom.background = "#000000"
+end
+
+config.color_scheme = bg_cat()
+
+config.colors = {
+  cursor_bg = "#ffffff",     -- Set your preferred cursor color
+  cursor_border = "#ffffff", -- Optional: Change the border color of the cursor
 }
+
 config.window_padding = {
   left = 10,
   right = 10,
