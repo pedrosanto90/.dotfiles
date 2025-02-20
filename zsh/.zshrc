@@ -34,6 +34,7 @@ alias dnotes='~/DeepNotes-1.0.24.AppImage'
 alias ls='exa --icons'
 alias cat='batcat'
 alias sd='sudo shutdown now'
+alias update='~/scripts/update'
 
 #export NVM_DIR="$HOME/.nvm"
 #[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

@@ -38,7 +38,7 @@ config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 config.window_background_opacity = 0.9
 config.default_cursor_style = 'BlinkingBlock'
 config.cursor_blink_rate = 700
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.hide_mouse_cursor_when_typing = true
 -- and finally, return the configuration to wezterm
 return config

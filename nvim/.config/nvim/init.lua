@@ -17,7 +17,7 @@ vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
 
 -- Options
 vim.opt.guicursor = ""
-vim.opt.timeoutlen = 200
+vim.opt.timeoutlen = 250
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
