@@ -1,9 +1,13 @@
 return {
   {
-    -- dir = "~/Documents/projects/c-note.nvim",
-    "pedrosanto90/c-note.nvim",
+    dir = "~/Documents/plugins/focus.nvim/",
+    dependencies = {
+      "rcarriga/nvim-notify",
+    },
+    -- "pedrosanto90/c-note.nvim",
     config = function()
-      require "c-note"
+      vim.notify = require("notify")
+      require("focus")
     end
   }
 }

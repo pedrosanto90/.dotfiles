@@ -22,11 +22,12 @@ vim.opt.runtimepath:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+require("config.options")
 
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    { import = "config.plugins" }
+    { import = "config.plugins" },
   },
   change_detection = {
     -- automatically check for config file changes and reload the ui
