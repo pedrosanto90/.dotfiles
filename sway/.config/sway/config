@@ -49,8 +49,10 @@ bar {
     swaybar_command waybar
 }
 
-output eDP-1 resolution 1920x1080 position 0 1080
+output eDP-1 resolution 1920x1080 position 0 0
 output DP-1 resolution 1920x1080 position 0 0
+# output HDMI-A-1 enable resolution 1920x1080 position 0,0
+# exec kanshi
 
 #====================================#
 # Keyboard Shortcuts (Sway-specific) #
