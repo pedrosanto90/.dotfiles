@@ -1,5 +1,5 @@
 allow_images=true
-image_size=64
+image_size=40
 width=600
 height=200
 insensitive=true

@@ -1,16 +1,13 @@
 #!/bin/sh
 
-# Credit to the following for comming up with this:
-# https://code.krister.ee/lock-screen-in-sway/
-# To Do: The fancier screen lock mentioned on that page might be cool to try.
+img_path="/tmp/lockscreen.png"
 
-# Times the screen off and puts it to background
+grim "$img_path" || exit 1
+
 swayidle \
     timeout 10 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' &
 
-# Locks the screen immediately
-swaylock -c 550000
+swaylock -i "$img_path" --effect-blur 7x5 --clock
 
-# Kills last background task so idle timer doesn't keep running
 kill %%

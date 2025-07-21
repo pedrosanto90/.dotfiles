@@ -94,17 +94,21 @@ pomodoro () {
 alias wo="pomodoro 'work'"
 alias br="pomodoro 'break'"
 
-# ASCII welcome message
-center() {
-  term_width=$(tput cols)
-  while IFS= read -r line; do
-    printf "%*s\n" $(( (${#line} + term_width) / 2 )) "$line"
-  done
-}
+# # ASCII welcome message
+# center() {
+#   term_width=$(tput cols)
+#   while IFS= read -r line; do
+#     printf "%*s\n" $(( (${#line} + term_width) / 2 )) "$line"
+#   done
+# }
+#
+# clear
+# figlet "Pedro" |center |  lolcat
+# figlet "(¬_¬)" |center |  lolcat
+# # echo
+# # center <<< "Stay focused and crush your goals 💪"
 
-clear
-figlet "Pedro" |center |  lolcat
-figlet "(¬_¬)" |center |  lolcat
-# echo
-# center <<< "Stay focused and crush your goals 💪"
 
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
