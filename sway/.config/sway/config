@@ -49,8 +49,12 @@ bar {
 }
 
 output eDP-1 resolution 1920x1080 position 1920 1080
-output DP-1 resolution 1920x1080 position 1920 0
+# output DP-1 resolution 1920x1080 position 1920 1080 
+# output eDP-1 resolution 1920x1080 position 0 0
+# output DP-1 resolution 1920x1080 position 0 0 
 output HDMI-A-1 enable resolution 1920x1080 position 0 0 
+output DP-1 resolution 1920x1080 position 1920 0
+#output HDMI-A-1 enable resolution 1920x1080 position 1920 0
 
 #====================================#
 # Keyboard Shortcuts (Sway-specific) #
@@ -84,6 +88,7 @@ set $lock_screen exec bash ~/.config/sway/lock_screen.sh
 bindsym $mod+Escape exec $lock_screen
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always nm-applet --indicator
+exec .home/$(whoami)/.config/waybar/toggle_keyboard_layout.sh
 
 
 #========================================#

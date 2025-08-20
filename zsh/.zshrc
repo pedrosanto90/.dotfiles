@@ -112,3 +112,8 @@ alias br="pomodoro 'break'"
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/pedro/.lmstudio/bin"
+# End of LM Studio CLI section
+

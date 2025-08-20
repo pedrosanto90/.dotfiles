@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if swaymsg -t get_outputs | grep -q '"name": "DP-1".*"active": true'; then
+    WAYBAR_OUTPUT=DP-1 waybar &
+else
+    WAYBAR_OUTPUT=eDP-1 waybar &
+fi

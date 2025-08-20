@@ -18,15 +18,17 @@
 {
     "layer": "bottom",
     "position": "bottom",
-    "height": 36,
+    "height": 30,
     "spacing": 4,
     "margin-top": 0,
-    "margin-bottom": 0,
+    "margin-bottom": 2,
+    "margin-left": 2,
+    "margin-right": 2,
 
     // Choose the order of the modules
     // "modules-center": ["sway/workspaces", "tray"],
     "modules-left": ["sway/workspaces"],
-    "modules-right": [ "tray", "custom/keyboard-layout","bluetooth", "custom/audio","network","battery"],
+    "modules-right": [ "tray", "custom/keyboard-layout","bluetooth", "pulseaudio","network","battery"],
     "modules-center": ["clock"],
 
     // Configuration for individual modules

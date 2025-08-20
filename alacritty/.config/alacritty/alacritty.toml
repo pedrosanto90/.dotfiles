@@ -3,8 +3,8 @@
 
 opacity = 1
 
-padding.x = 10
-padding.y = 10
+padding.x = 5
+padding.y = 1
 
 decorations = "Full"
 decorations_theme_variant = "Dark" #"Light"
