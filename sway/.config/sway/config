@@ -246,7 +246,7 @@ bindsym $mod+shift+b exec firefox
 # bindsym $mod+shift+b exec brave-browser
 
 # Open a file manager:
-bindsym ctrl+$mod+f exec pcmanfm
+# bindsym ctrl+$mod+f exec pcmanfm
 
 # Open a terminal emulator:
 # set $term /usr/bin/wezterm
@@ -257,7 +257,8 @@ bindsym $mod+t exec alacritty
 bindsym $mod+Shift+q kill
 
 # Open the application launcher:
-bindsym $mod+space exec $menu
+# bindsym $mod+space exec $menu
+bindsym $mod+space exec pcmanfm
 
 # Open the application launcher (alternate version):
 bindsym $mod+d exec $menu
