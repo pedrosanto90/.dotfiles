@@ -16,11 +16,14 @@ indent_size = 2
 [*.tsx]
 indent_size = 2
 
-[*.cpp]
-indent_size = 4
-
 [*.h]
 indent_size = 4
 
 [*.py]
 indent_size = 4
+
+[*.cpp]
+indent_size = 2
+
+[*.c]
+indent_size = 2

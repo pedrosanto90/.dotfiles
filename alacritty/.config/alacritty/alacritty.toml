@@ -1,10 +1,9 @@
-
 [window]
 
 opacity = 1
 
 padding.x = 5
-padding.y = 1
+padding.y = 5
 
 decorations = "Full"
 decorations_theme_variant = "Dark" #"Light"
