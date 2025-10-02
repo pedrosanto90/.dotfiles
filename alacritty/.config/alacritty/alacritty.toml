@@ -15,7 +15,7 @@ bold.family = "JetBrains Mono"
 italic.family = "JetBrains Mono"
 bold_italic.family = "JetBrains Mono"
 
-size = 16.0
+size = 20.0
 
 [general]
 import = [ "/home/pedro/.config/alacritty/tokyo-night-storm.toml" ]

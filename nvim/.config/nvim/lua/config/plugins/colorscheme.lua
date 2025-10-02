@@ -4,7 +4,7 @@
 -- 	config = function()
 -- 		require("tokyonight").setup({
 -- 			style = "storm",
--- 			transparent = false,
+-- 			transparent = true,
 -- 		})
 -- 		-- load the colorscheme here
 -- 		vim.cmd([[colorscheme tokyonight]])
@@ -19,9 +19,8 @@ return {
 		-- NOTE: you do not need to call setup if you don't want to.
 		require("vague").setup({
 			-- optional configuration here
-			transparent = false,
+			transparent = true,
 		})
 		vim.cmd("colorscheme vague")
 	end,
-},
-	n
+}

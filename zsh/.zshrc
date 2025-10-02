@@ -25,13 +25,16 @@ fi
 alias vim="nvim"
 alias c="clear"
 alias tmx='tmux new -s $(basename $PWD)'
-alias ls='exa --icons'
+alias ls='eza --icons --color=auto --group-directories-first'
+alias ll='eza -l --icons --color=auto --group-directories-first'
+alias la='eza -la --icons --color=auto --group-directories-first'
 alias cat='bat'
 alias sd='sudo shutdown now'
 alias update='~/scripts/update'
 alias sk='~/scripts/screenkey'
 alias python='python3'
-alias draw="~/Documents/Lorien_v0.6.0_Linux/Lorien.x86_64"
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+alias rpi-imager="flatpak run --device=all org.raspberrypi.rpi-imager"
 
 bindkey -s ^f "~/scripts/tmux-se\n"
 
@@ -113,7 +116,8 @@ alias br="pomodoro 'break'"
 # Load Angular CLI autocompletion.
 source <(ng completion script)
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/pedro/.lmstudio/bin"
-# End of LM Studio CLI section
-
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+export PATH=$HOME/.npm-global/bin:$PATH
