@@ -8,12 +8,12 @@ return {
 			-- You can customize some of the format options for the filetype (:help conform.format)
 			rust = { "rustfmt" },
 			-- Conform will run the first available formatter
-			javascript = { "prettierd", "prettier", stop_after_first = true },
-			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-			typescript = { "prettierd", "prettier", stop_after_first = true },
-			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
-			html = { "prettierd", "prettier", stop_after_first = true },
-			css = { "prettierd", "prettier", stop_after_first = true },
+			javascript = { "prettier" },
+			javascriptreact = { "prettier" },
+			typescript = { "prettier" },
+			typescriptreact = { "prettier" },
+			html = { "prettier" },
+			css = { "prettier" },
 			htmldjango = { "djlint" },
 			go = { "gofmt" },
 			php = { "duster" },

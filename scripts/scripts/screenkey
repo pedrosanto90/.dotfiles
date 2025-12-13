@@ -1,7 +1,8 @@
-#!/usr/bin/env bash
+!/usr/bin/env bash
 
-
-# wshowkeys [-b|-f|-s #RRGGBB[AA]] [-F font] [-t timeout]
-#     [-a top|left|right|bottom] [-m margin] [-o output]
-#
-wshowkeys -a right -a bottom -m 150 -F 'jetbrains mono 24' -t 1.5
+while [ : ]; do
+    /usr/bin/screenkey --geometry 711x900+1812+0 -s medium --opacity 0.4
+    pid=$!
+    sleep 10
+    kill $pid
+done

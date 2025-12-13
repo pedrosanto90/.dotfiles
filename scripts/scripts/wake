@@ -15,7 +15,7 @@ fi
 MAC_ADDRESS=$1
 
 # Check if wakeonlan is installed
-if ! command -v wakeonlan &> /dev/null; then
+if ! command -v wakeonlan &>/dev/null; then
     echo "The wakeonlan command could not be found."
     echo "Please install it by running 'sudo apt-get install wakeonlan'"
     exit 1
@@ -31,4 +31,3 @@ else
     echo "Failed to send magic packet to $MAC_ADDRESS"
     exit 1
 fi
-

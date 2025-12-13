@@ -10,6 +10,7 @@ fi
 export _JAVA_AWT_WM_NONREPARENTING=1
 export MANPAGER='nvim +Man!'
 export PATH=$PATH:/usr/sbin
+export PATH=$PATH:/home/pedro/.cargo/bin
 
 plugins=(git)
 
@@ -35,6 +36,8 @@ alias sk='~/scripts/screenkey'
 alias python='python3'
 alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
 alias rpi-imager="flatpak run --device=all org.raspberrypi.rpi-imager"
+alias wake="~/scripts/wake 68-54-5A-FD-AE-F3"
+alias juce='~/scripts/juce'
 
 bindkey -s ^f "~/scripts/tmux-se\n"
 
@@ -97,27 +100,8 @@ pomodoro () {
 alias wo="pomodoro 'work'"
 alias br="pomodoro 'break'"
 
-# # ASCII welcome message
-# center() {
-#   term_width=$(tput cols)
-#   while IFS= read -r line; do
-#     printf "%*s\n" $(( (${#line} + term_width) / 2 )) "$line"
-#   done
-# }
-#
-# clear
-# figlet "Pedro" |center |  lolcat
-# figlet "(¬_¬)" |center |  lolcat
-# # echo
-# # center <<< "Stay focused and crush your goals 💪"
-
+export PATH=$HOME/.npm-global/bin:$PATH
 
 
 # Load Angular CLI autocompletion.
 source <(ng completion script)
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
-export PATH=$HOME/.npm-global/bin:$PATH

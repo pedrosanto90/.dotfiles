@@ -84,6 +84,7 @@ return {
 		--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
 		local original_capabilities = vim.lsp.protocol.make_client_capabilities()
 		local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
+
 		-- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
 		-- Enable the following language servers
@@ -94,17 +95,18 @@ return {
 		--  - filetypes (table): Override the default list of associated filetypes for the server
 		--  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
 		--  - settings (table): Override the default settings passed when initializing the server.
-		--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+		--
+
 		local servers = {
 			bashls = {},
 			marksman = {},
 			clangd = {},
 			gopls = {},
 			pyright = {},
-			-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 			ts_ls = {},
 			emmet_language_server = {},
 			intelephense = {},
+			jdtls = {},
 		}
 
 		-- Ensure the servers and tools above are installed
@@ -123,7 +125,7 @@ return {
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
 			"stylua", -- Used to format Lua code
-			"prettierd", -- Used to format javascript and typescript code
+			"prettier", -- Used to format javascript and typescript code
 			"flake8", -- Python
 		})
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
