@@ -1,0 +1,119 @@
+#!/bin/bash
+
+show_help() {
+    cat <<EOF
+Use: $0 [opt] <server> [dir]
+
+Options:
+
+  -h            Show help message
+  -u <server>   Unmount the specified server
+
+
+Available servers:
+
+  pedro         192.168.0.171 -> /home/pedro/Documents/projects
+  domatica      IP_DOMATICA_AQUI -> /home/pedro/Documentos/work/domatica
+
+###########################################################################
+
+Exemples:
+
+  $0 pedro /home/user           # Mount the remote directory on server pedro
+  $0 -u pedro                   # Unmount the pedro server
+  $0 -h                         # Show this help message
+EOF
+    exit 0
+}
+
+unmount_server() {
+    local SERVER=$1
+    local MOUNT_POINT
+
+    case "$SERVER" in
+    pedro)
+        MOUNT_POINT="/home/pedro/Documents/projects"
+        ;;
+    domatica)
+        MOUNT_POINT="/home/pedro/Documentos/work/domatica"
+        ;;
+    *)
+        echo "Unknowed server: $SERVER"
+        echo "Avaiable servers: pedro, domatica"
+        exit 1
+        ;;
+    esac
+
+    if mountpoint -q "$MOUNT_POINT"; then
+        echo "Unmounting $MOUNT_POINT..."
+        fusermount -u "$MOUNT_POINT" 2>/dev/null || umount "$MOUNT_POINT"
+        if [ $? -eq 0 ]; then
+            echo "✓ Unmount successful"
+        else
+            echo "✗ Error unmounting $MOUNT_POINT"
+            exit 1
+        fi
+    else
+        echo "✗ $MOUNT_POINT not mounted"
+        exit 1
+    fi
+    exit 0
+}
+
+if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
+    show_help
+fi
+
+if [ "$1" == "-u" ]; then
+    if [ -z "$2" ]; then
+        echo "Error: Missing server name for unmounting"
+        echo "Uso: $0 -u <server>"
+        exit 1
+    fi
+    unmount_server "$2"
+fi
+
+if [ $# -ne 2 ]; then
+    echo "Use: $0 <server> <remote_dir>"
+    echo "Use '$0 -h' for help"
+    exit 1
+fi
+
+SERVER=$1
+REMOTE_DIR=$2
+
+case "$SERVER" in
+pedro)
+    SSH_HOST="pedro@192.168.0.171"
+    MOUNT_POINT="/home/pedro/Documents/projects"
+    ;;
+domatica)
+    SSH_HOST="user@IP_DOMATICA_AQUI"
+    MOUNT_POINT="/home/pedro/Documentos/work/domatica"
+    ;;
+*)
+    echo "Unkowed server: $SERVER"
+    echo "Avaiable servers: pedro, domatica"
+    exit 1
+    ;;
+esac
+
+mkdir -p "$MOUNT_POINT"
+
+if mountpoint -q "$MOUNT_POINT"; then
+    echo "Aviso: $MOUNT_POINT already mounted. Unmounting first..."
+    echo "Unmounting..."
+    fusermount -u "$MOUNT_POINT" 2>/dev/null || umount "$MOUNT_POINT"
+fi
+
+echo "Connecting to $SSH_HOST:$REMOTE_DIR"
+echo "Mounted: $MOUNT_POINT"
+
+sshfs "$SSH_HOST:$REMOTE_DIR" "$MOUNT_POINT" -o reconnect,ServerAliveInterval=15,ServerAliveCountMax=3
+
+if [ $? -eq 0 ]; then
+    echo "✓ Mounted at $MOUNT_POINT"
+else
+    echo "✗ Error mounting $SSH_HOST:$REMOTE_DIR"
+    exit 1
+fi

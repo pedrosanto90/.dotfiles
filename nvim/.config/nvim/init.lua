@@ -33,7 +33,7 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+-- vim.opt.colorcolumn = "80"
 vim.opt.encoding = "UTF-8"
 
 vim.opt.winborder = "rounded"
@@ -54,6 +54,15 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+
+-- Reload files changed outside neovim
+vim.opt.autoread = true
+vim.opt.updatetime = 300
+-- " When a file is changed outside of Neovim and it is the current buffer, automatically reload it.
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  pattern = "*",
+  command = "silent! checktime",
+})
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -80,35 +89,35 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 -- ide like highlight when stopping cursor
-vim.api.nvim_create_autocmd("CursorMoved", {
-	group = vim.api.nvim_create_augroup("LspReferenceHighlight", { clear = true }),
-	desc = "Highlight references under cursor",
-	callback = function()
-		-- Only run if the cursor is not in insert mode
-		if vim.fn.mode() ~= "i" then
-			local clients = vim.lsp.get_clients({ bufnr = 0 })
-			local supports_highlight = false
-			for _, client in ipairs(clients) do
-				if client.server_capabilities.documentHighlightProvider then
-					supports_highlight = true
-					break -- Found a supporting client, no need to check others
-				end
-			end
-
-			-- 3. Proceed only if an LSP is active AND supports the feature
-			if supports_highlight then
-				vim.lsp.buf.clear_references()
-				vim.lsp.buf.document_highlight()
-			end
-		end
-	end,
-})
+-- vim.api.nvim_create_autocmd("CursorMoved", {
+-- 	group = vim.api.nvim_create_augroup("LspReferenceHighlight", { clear = true }),
+-- 	desc = "Highlight references under cursor",
+-- 	callback = function()
+-- 		-- Only run if the cursor is not in insert mode
+-- 		if vim.fn.mode() ~= "i" then
+-- 			local clients = vim.lsp.get_clients({ bufnr = 0 })
+-- 			local supports_highlight = false
+-- 			for _, client in ipairs(clients) do
+-- 				if client.server_capabilities.documentHighlightProvider then
+-- 					supports_highlight = true
+-- 					break -- Found a supporting client, no need to check others
+-- 				end
+-- 			end
+--
+-- 			-- 3. Proceed only if an LSP is active AND supports the feature
+-- 			if supports_highlight then
+-- 				vim.lsp.buf.clear_references()
+-- 				vim.lsp.buf.document_highlight()
+-- 			end
+-- 		end
+-- 	end,
+-- })
 
 -- ide like highlight when stopping cursor
-vim.api.nvim_create_autocmd("CursorMovedI", {
-	group = "LspReferenceHighlight",
-	desc = "Clear highlights when entering insert mode",
-	callback = function()
-		vim.lsp.buf.clear_references()
-	end,
-})
+-- vim.api.nvim_create_autocmd("CursorMovedI", {
+-- 	group = "LspReferenceHighlight",
+-- 	desc = "Clear highlights when entering insert mode",
+-- 	callback = function()
+-- 		vim.lsp.buf.clear_references()
+-- 	end,
+-- })

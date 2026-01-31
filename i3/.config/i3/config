@@ -14,6 +14,9 @@ gaps outer 2
 exec --no-startup-id ~/.screenlayout/layout.sh
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
+exec_always --no-startup-id setxkbmap -model abnt2 -layout br,us -option 'grp:alt_shift_toggle'
+
+exec --no-startup-id setxkbmap -layout us,pt -variant ,abnt2 -option grp:alt_shift_toggle
 
 # GET DEM BORDERS OUT OF HERE
 for_window [class="^.*"] border pixel 2

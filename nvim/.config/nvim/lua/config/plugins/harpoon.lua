@@ -8,11 +8,6 @@ return {
 	dependencies = {
 		-- https://github.com/nvim-lua/plenary.nvim
 		"nvim-lua/plenary.nvim",
-		{ "nvim-telescope/telescope.nvim", opts = {
-			defaults = {
-				initial_mode = "normal",
-			},
-		} },
 	},
 	opts = {
 		settings = {
@@ -29,26 +24,6 @@ return {
 	config = function(_, opts)
 		local harpoon = require("harpoon")
 
-		-- basic telescope configuration
-		local conf = require("telescope.config").values
-		local function toggle_telescope(harpoon_files)
-			local file_paths = {}
-			for _, item in ipairs(harpoon_files.items) do
-				table.insert(file_paths, item.value)
-			end
-
-			require("telescope.pickers")
-				.new({}, {
-					prompt_title = "Harpoon",
-					finder = require("telescope.finders").new_table({
-						results = file_paths,
-					}),
-					previewer = conf.file_previewer({}),
-					sorter = conf.generic_sorter({}),
-				})
-				:find()
-		end
-
 		-- Inicializa o Harpoon com as tuas opções
 		harpoon:setup(opts)
 
@@ -58,7 +33,7 @@ return {
 		end, { desc = "Add file to Harpoon" })
 
 		vim.keymap.set("n", "<leader>hf", function()
-			toggle_telescope(harpoon:list())
+			harpoon.ui:toggle_quick_menu(harpoon:list())
 		end, { desc = "Open harpoon window" })
 
 		-- Navegação rápida entre os ficheiros marcados
