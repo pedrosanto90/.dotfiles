@@ -31,7 +31,8 @@ floating_modifier $mod
 # bindsym $mod+Return exec gnome-terminal
 # bindsym $mod+Return exec --no-startup-id flatpak run org.wezfurlong.wezterm
 # if wezterm is isntalled via official method use this line instead
-bindsym $mod+Return exec --no-startup-id wezterm
+# bindsym $mod+Return exec --no-startup-id wezterm
+bindsym $mod+Return exec --no-startup-id alacritty
 # change this accoring to your browser
 bindsym $mod+t exec firefox-esr
 

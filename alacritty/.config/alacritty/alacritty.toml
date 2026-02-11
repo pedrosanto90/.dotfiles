@@ -1,5 +1,4 @@
 [window]
-
 opacity = 0.95
 
 padding.x = 10
@@ -12,8 +11,10 @@ decorations_theme_variant = "Dark" #"Light"
 normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
 bold = { family = "JetBrainsMono Nerd Font Mono", style = "Bold" }
 italic = { family = "JetBrainsMono Nerd Font Mono", style = "Italic" }
-size = 14.0
+size = 12.0
 
 [mouse]
 hide_when_typing = false
 
+[colors.primary]
+background = '#000000'
