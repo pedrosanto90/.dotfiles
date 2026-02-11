@@ -20,8 +20,8 @@ config.colors = {
 	cursor_border = "#ffffff",
 }
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
--- config.window_background_opacity = 0.8
-config.window_background_opacity = 1
+config.window_background_opacity = 0.9
+-- config.window_background_opacity = 1
 config.default_cursor_style = "BlinkingBlock"
 config.cursor_blink_rate = 700
 config.hide_tab_bar_if_only_one_tab = true

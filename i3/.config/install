@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+# Bootstrap required tools for the i3 + i3status + lock scripts in this repo.
+# Supports apt (Debian/Ubuntu), pacman (Arch), and dnf (Fedora/RHEL).
+set -euo pipefail
+
+# Packages per distro
+APT_PKGS=(
+  i3 i3status rofi nitrogen flameshot brightnessctl 
+  network-manager-gnome blueman imagemagick i3lock x11-xserver-utils x11-utils x11-xkb-utils 
+  pulseaudio-utils unzip wget curl
+)
+PACMAN_PKGS=(
+  i3-wm i3status rofi nitrogen flameshot brightnessctl 
+  network-manager-applet blueman imagemagick i3lock xorg-xset xorg-xrandr xorg-setxkbmap 
+  pulseaudio firefox flatpak unzip wget curl
+)
+DNF_PKGS=(
+  i3 i3status rofi nitrogen flameshot brightnessctl 
+  NetworkManager-gnome blueman ImageMagick i3lock xset xrandr xmodmap xkbcomp 
+  pulseaudio-utils firefox flatpak unzip wget curl
+)
+
+pkg_mgr() {
+  if command -v apt-get >/dev/null 2>&1; then echo apt; return; fi
+  if command -v pacman >/dev/null 2>&1; then echo pacman; return; fi
+  if command -v dnf >/dev/null 2>&1; then echo dnf; return; fi
+  echo "Unsupported package manager" >&2; exit 1
+}
+
+install_pkgs() {
+  case "$1" in
+    apt)
+      sudo apt-get update
+      sudo apt-get install -y "${APT_PKGS[@]}"
+      ;;
+    pacman)
+      sudo pacman -Syu --noconfirm "${PACMAN_PKGS[@]}"
+      ;;
+    dnf)
+      sudo dnf install -y "${DNF_PKGS[@]}"
+      ;;
+  esac
+}
+
+install_font() {
+  local font_dir="$HOME/.local/share/fonts"
+  mkdir -p "$font_dir"
+  # JetBrainsMono Nerd Font is used in i3 and i3status configs.
+  local url="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/JetBrainsMono.zip"
+  local zip="/tmp/JetBrainsMonoNF.zip"
+  echo "Downloading JetBrainsMono Nerd Font …"
+  wget -qO "$zip" "$url"
+  unzip -o "$zip" -d "$font_dir" >/dev/null
+  rm "$zip"
+  fc-cache -fv "$font_dir" >/dev/null
+}
+
+main() {
+  local mgr
+  mgr=$(pkg_mgr)
+  echo "Using package manager: $mgr"
+  install_pkgs "$mgr"
+  install_font
+
+  echo "All required tools installed. You may need to relog for fonts and tray applets."
+}
+
+main "$@"
