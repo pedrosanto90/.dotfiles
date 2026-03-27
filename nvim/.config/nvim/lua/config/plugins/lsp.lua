@@ -107,6 +107,7 @@ return {
 			emmet_language_server = {},
 			intelephense = {},
 			jdtls = {},
+      angularls = {},
 		}
 
 		-- Ensure the servers and tools above are installed

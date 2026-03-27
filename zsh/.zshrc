@@ -41,12 +41,13 @@ alias sd='sudo shutdown now'
 alias update='~/scripts/update'
 alias sk='~/scripts/screenkey'
 alias python='python3'
-alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
 alias rpi-imager="flatpak run --device=all org.raspberrypi.rpi-imager"
 alias wake="~/scripts/wake 68-54-5A-FD-AE-F3"
 alias juce='~/scripts/juce'
 
 bindkey -s ^f "~/scripts/tmux-se\n"
+bindkey -s ^g "~/scripts/zellij-se\n"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

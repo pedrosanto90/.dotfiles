@@ -1,7 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
--- This will hold the configuration.
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
@@ -27,4 +26,15 @@ config.cursor_blink_rate = 700
 config.hide_tab_bar_if_only_one_tab = true
 -- and finally, return the configuration to wezterm
 config.hide_mouse_cursor_when_typing = false
+
+-- local workspaces = require("workspaces")
+
+-- local act = wezterm.action
+
+-- wezterm.on('update-right-status', function(window, pane)
+--   window:set_right_status(window:active_workspace())
+-- end)
+
+-- workspaces.setup(config)
+
 return config

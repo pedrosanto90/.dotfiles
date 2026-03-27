@@ -14,6 +14,9 @@ gaps outer 2
 exec --no-startup-id ~/.screenlayout/layout.sh
 exec --no-startup-id xset s off
 exec --no-startup-id xset -dpms
+exec --no-startup-id xset s noblank
+exec --no-startup-id lxqt-policykit-agent
+
 exec_always --no-startup-id setxkbmap -model abnt2 -layout br,us -option 'grp:alt_shift_toggle'
 
 exec --no-startup-id setxkbmap -layout us,pt -variant ,abnt2 -option grp:alt_shift_toggle
@@ -33,6 +36,8 @@ floating_modifier $mod
 # if wezterm is isntalled via official method use this line instead
 # bindsym $mod+Return exec --no-startup-id wezterm
 bindsym $mod+Return exec --no-startup-id alacritty
+# bindsym $mod+Return exec --no-startup-id ~/.local/kitty.app/bin/kitty
+# bindsym $mod+Return exec --no-startup-id kitty
 # change this accoring to your browser
 bindsym $mod+t exec firefox-esr
 
@@ -139,6 +144,7 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
+
 # bindsym $mod+Ctrl+s exec --no-startup-id /home/pedro/.dotfiles/i3/.config/suspend-lock
 bindsym $mod+Ctrl+l exec --no-startup-id /home/pedro/.dotfiles/i3/.config/lock
 bindsym $mod+Ctrl+s exec --no-startup-id /home/pedro/.dotfiles/i3/.config/i3exit
@@ -174,7 +180,8 @@ bindsym $mod+r mode "resize"
 bar {
         font pango: JetBrainsMonoNF 16px
         status_command i3status
-        tray_output primary
+        # status_command py3status
+        # tray_output primary
 }
 
 # ------------------------------------------
