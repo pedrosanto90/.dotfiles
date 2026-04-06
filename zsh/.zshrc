@@ -103,16 +103,12 @@ pomodoro () {
   fi
 }
 
-# alias wo="pomodoro work"
-# alias br="pomodoro break"
 alias wo="pomodoro 'work'"
 alias br="pomodoro 'break'"
 
 export PATH=$HOME/.npm-global/bin:$PATH
 
-
-# Load Angular CLI autocompletion.
-source <(ng completion script)
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
