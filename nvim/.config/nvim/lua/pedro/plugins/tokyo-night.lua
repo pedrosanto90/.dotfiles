@@ -1,19 +1,19 @@
-return {
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-  {
-    "baliestri/aura-theme",
-    lazy = false,
-    priority = 1000,
-    config = function(plugin)
-      vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
-      vim.cmd([[colorscheme aura-dark]])
-
-            -- transparent background
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-    end
-  }
-}
+-- return {
+--   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
+--   {
+--     "baliestri/aura-theme",
+--     lazy = false,
+--     priority = 1000,
+--     config = function(plugin)
+--       vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
+--       vim.cmd([[colorscheme aura-dark]])
+-- 
+--             -- transparent background
+--       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+--     end
+--   }
+-- }
 -- return {
 -- 	"catppuccin/nvim",
 -- 	name = "catppuccin",
@@ -86,18 +86,18 @@ return {
 -- 	end,
 -- }
 -- tokyonight
--- return {
--- 	"folke/tokyonight.nvim",
--- 	priority = 1000, -- make sure to load this before all the other start plugins
--- 	config = function()
--- 		require("tokyonight").setup({
--- 			style = "storm",
--- 			transparent = true,
--- 		})
--- 		-- load the colorscheme here
--- 		vim.cmd([[colorscheme tokyonight]])
--- 	end,
--- }
+ return {
+ 	"folke/tokyonight.nvim",
+ 	priority = 1000, -- make sure to load this before all the other start plugins
+ 	config = function()
+ 		require("tokyonight").setup({
+ 			style = "storm",
+ 			transparent = true,
+ 		})
+ 		-- load the colorscheme here
+ 		vim.cmd([[colorscheme tokyonight]])
+ 	end,
+ }
 --
 -- Vague
 -- return {
