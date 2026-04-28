@@ -12,17 +12,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup(
-    {
-        { import = "pedro.plugins" },
-        { import = "pedro.plugins.lsp" },
+  {
+    { import = "pedro.plugins" },
+    { import = "pedro.plugins.lsp" },
+  },
+  {
+    checker = {
+      enabled = true,
+      notify = false,
     },
-    {
-        checker = {
-            enabled = true,
-            notify = false,
-        },
-        change_detection = {
-            notify = false,
-        },
-    }
+    change_detection = {
+      notify = false,
+    },
+  }
 )

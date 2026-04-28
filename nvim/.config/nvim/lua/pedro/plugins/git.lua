@@ -22,7 +22,7 @@ return {
         map("n", "<leader>hS", gs.stage_buffer, "Stage buffer")
         map("n", "<leader>hR", gs.reset_buffer, "Reset buffer")
         map("n", "<leader>hp", gs.preview_hunk, "Preview hunk")
-        map("n", "<leader>hb", gs.blame_line, "Git blame line")
+        map("n", "<leader>hb", gs.blame_line, "Git blame ine")
         map("n", "<leader>hd", gs.diffthis, "Diff this file")
       end,
     },
