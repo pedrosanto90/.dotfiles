@@ -146,6 +146,7 @@ return {
                 "javascriptreact",
                 "less",
                 "typescriptreact",
+                "typescriptreact",
             },
             init_options = {
                 includeLanguages = {},
