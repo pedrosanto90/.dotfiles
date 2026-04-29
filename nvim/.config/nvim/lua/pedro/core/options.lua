@@ -26,7 +26,6 @@ vim.incsearch = true
 -- UI
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
-vim.opt.colorcolumn = "80"
 
 -- folding (for nvim-ufo)
 vim.o.foldenable = true
@@ -42,7 +41,7 @@ vim.opt.splitbelow = true
 vim.opt.guicursor = ""
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
-vim.opt.colorcolumn = "0"
+vim.opt.colorcolumn = "100"
 vim.opt.mouse = 'a'
 vim.opt.encoding = "UTF-8"
 
