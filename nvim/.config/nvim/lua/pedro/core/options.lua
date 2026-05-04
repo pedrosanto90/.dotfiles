@@ -20,8 +20,8 @@ vim.opt.undofile = true
 
 -- search
 vim.opt.inccommand = "split"
-vim.hlsearch = false
-vim.incsearch = true
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
 -- UI
 vim.opt.scrolloff = 8
