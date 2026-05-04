@@ -114,12 +114,12 @@ return {
 			bashls = {},
 			marksman = {},
 			clangd = {},
-			gopls = {},
+			-- gopls = {},
 			pyright = {},
 			ts_ls = {},
 			emmet_language_server = {},
 			intelephense = {},
-			jdtls = {},
+			-- jdtls = {},
 			angularls = {},
 		}
 
@@ -134,7 +134,7 @@ return {
 		vim.list_extend(ensure_installed, {
 			"stylua",
 			"prettier",
-			"flake8",
+			-- "flake8",
 		})
 
 		require("mason-tool-installer").setup({
