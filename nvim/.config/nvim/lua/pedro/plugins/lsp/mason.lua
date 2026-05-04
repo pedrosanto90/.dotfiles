@@ -43,13 +43,9 @@ return {
 
         mason_tool_installer.setup({
             ensure_installed = {
-                "biome",
                 "prettier",
                 "stylua",
-                "isort",
-                "pylint",
                 "clangd",
-                "denols",
             },
         })
     end,
