@@ -38,6 +38,7 @@ return {
                 "emmet_ls",
                 "emmet_language_server",
                 "marksman",
+                "jdtls",
             },
         })
 

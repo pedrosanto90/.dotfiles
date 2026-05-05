@@ -119,8 +119,8 @@ return {
 			ts_ls = {},
 			emmet_language_server = {},
 			intelephense = {},
-			-- jdtls = {},
 			angularls = {},
+			jdtls = {},
 		}
 
 		-- Apply blink capabilities globally + per-server settings
