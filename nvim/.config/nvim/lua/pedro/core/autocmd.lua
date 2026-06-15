@@ -38,3 +38,11 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 		end
 	end,
 })
+
+-- compile java projects when saving
+vim.api.nvim_create_autocmd("BufWritePost", {
+    pattern = "*.java",
+    callback = function()
+      vim.fn.jobstart({"./mvnw", "compile", "-o", "-q"}, { detach = true })
+    end,
+  })

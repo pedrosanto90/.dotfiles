@@ -1,12 +1,8 @@
 return {
-	-- Main LSP Configuration
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		{ "williamboman/mason.nvim", opts = {} },
-		"williamboman/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
-
-		-- Useful status updates for LSP.
+		"mason-org/mason.nvim",
+		"mason-org/mason-lspconfig.nvim",
 		{ "j-hui/fidget.nvim", opts = {} },
 	},
 	config = function()
@@ -16,16 +12,16 @@ return {
 				local opts = { buffer = event.buf, silent = true }
 
 				opts.desc = "Show LSP references"
-				vim.keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
+				vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references initial_mode=normal<CR>", opts)
 
 				opts.desc = "Go to declaration"
-				vim.keymap.set("n", "gd", vim.lsp.buf.declaration, opts)
+				vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
 				opts.desc = "Show LSP definitions"
-				vim.keymap.set("n", "gD", "<cmd>Telescope lsp_definitions<CR>", opts)
+				vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 
 				opts.desc = "Show LSP implementations"
-				vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+				vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations initial_mode=normal<CR>", opts)
 
 				opts.desc = "Show LSP type definitions"
 				vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
@@ -45,29 +41,19 @@ return {
 				vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 
 				opts.desc = "Show documentation for what is under cursor"
-				vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-
-				opts.desc = "Restart LSP"
-				vim.keymap.set("n", "<leader>rs", ":lsp restart<CR>", opts)
-
-				vim.keymap.set("i", "<C-h>", function()
-					vim.lsp.buf.signature_help()
+				vim.keymap.set("n", "K", function()
+					vim.lsp.buf.hover({ border = "rounded" })
 				end, opts)
 
-				---@param client vim.lsp.Client
-				---@param method vim.lsp.protocol.Method
-				---@param bufnr? integer
-				---@return boolean
-				local function client_supports_method(client, method, bufnr)
-					if vim.fn.has("nvim-0.11") == 1 then
-						return client:supports_method(method, bufnr)
-					else
-						return client.supports_method(method, { bufnr = bufnr })
-					end
-				end
+				opts.desc = "Restart LSP"
+				vim.keymap.set("n", "<leader>rs", "<cmd>LspRestart<CR>", opts)
+
+				vim.keymap.set("i", "<C-h>", function()
+					vim.lsp.buf.signature_help({ border = "rounded" })
+				end, opts)
 
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
-				if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+				if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
 					vim.keymap.set("n", "<leader>th", function()
 						vim.lsp.inlay_hint.enable(
 							not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
@@ -105,41 +91,29 @@ return {
 			},
 		})
 
-		-- Capabilities
-		local original_capabilities = vim.lsp.protocol.make_client_capabilities()
-		local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
+		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-		-- LSP servers
+		-- LSP servers (jdtls is configured separately in jdtls.lua)
 		local servers = {
 			bashls = {},
 			marksman = {},
 			clangd = {},
-			-- gopls = {},
 			pyright = {},
 			ts_ls = {},
 			emmet_language_server = {},
 			intelephense = {},
 			angularls = {},
-			jdtls = {},
+			lua_ls = {},
+			html = {},
+			cssls = {},
+			tailwindcss = {},
+			gopls = {},
 		}
 
-		-- Apply blink capabilities globally + per-server settings
 		vim.lsp.config("*", { capabilities = capabilities })
 		for server_name, server_opts in pairs(servers) do
 			vim.lsp.config(server_name, server_opts)
 		end
-
-		-- Tools to install
-		local ensure_installed = vim.tbl_keys(servers or {})
-		vim.list_extend(ensure_installed, {
-			"stylua",
-			"prettier",
-			-- "flake8",
-		})
-
-		require("mason-tool-installer").setup({
-			ensure_installed = ensure_installed,
-		})
 
 		require("mason-lspconfig").setup({
 			ensure_installed = vim.tbl_keys(servers),

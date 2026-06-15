@@ -44,6 +44,7 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "100"
 vim.opt.mouse = 'a'
 vim.opt.encoding = "UTF-8"
+vim.opt.keywordprg = ":help"
 
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = "unnamedplus"
